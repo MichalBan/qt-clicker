@@ -75,9 +75,9 @@ color: rgb(122, 84, 53);</string>
     <property name="geometry">
      <rect>
       <x>185</x>
-      <y>30</y>
+      <y>0</y>
       <width>230</width>
-      <height>48</height>
+      <height>70</height>
      </rect>
     </property>
     <property name="layoutDirection">
@@ -88,6 +88,9 @@ color: rgb(122, 84, 53);</string>
       <widget class="QProgressBar" name="progressBarTime">
        <property name="value">
         <number>24</number>
+       </property>
+       <property name="invertedAppearance">
+        <bool>false</bool>
        </property>
       </widget>
      </item>
@@ -109,7 +112,7 @@ color: rgb(122, 84, 53);</string>
       <x>185</x>
       <y>160</y>
       <width>230</width>
-      <height>48</height>
+      <height>70</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -132,6 +135,30 @@ color: rgb(122, 84, 53);</string>
      </item>
     </layout>
    </widget>
+   <widget class="QFrame" name="frameDots">
+    <property name="geometry">
+     <rect>
+      <x>25</x>
+      <y>79</y>
+      <width>550</width>
+      <height>450</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-color: rgb(170, 85, 0);
+border-width: 5px;</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Shape::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Shadow::Raised</enum>
+    </property>
+   </widget>
+   <zorder>frameDots</zorder>
+   <zorder>frameButtons</zorder>
+   <zorder>frameScore</zorder>
+   <zorder>frameReturn</zorder>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
