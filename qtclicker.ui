@@ -37,24 +37,24 @@
       <enum>QLayout::SizeConstraint::SetDefaultConstraint</enum>
      </property>
      <item>
-      <widget class="QPushButton" name="buttonGo1">
+      <widget class="QPushButton" name="buttonPlay">
        <property name="styleSheet">
         <string notr="true">background-color: rgb(60, 182, 4);
 color: rgb(122, 84, 53);</string>
        </property>
        <property name="text">
-        <string>Go 1</string>
+        <string>Play</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="buttonGo2">
+      <widget class="QPushButton" name="buttonSettings">
        <property name="styleSheet">
         <string notr="true">background-color: rgb(60, 182, 4);
 color: rgb(122, 84, 53);</string>
        </property>
        <property name="text">
-        <string>Go 2</string>
+        <string>Settings</string>
        </property>
       </widget>
      </item>

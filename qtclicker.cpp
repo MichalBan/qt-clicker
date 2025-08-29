@@ -9,19 +9,26 @@ qtclicker::qtclicker(QWidget* parent)
 	ui.frameScore->setVisible(false);
 	ui.frameReturn->setVisible(false);
 	ui.frameDots->setVisible(false);
+	connect(ui.buttonPlay, &QPushButton::clicked, this, &qtclicker::clickedPlay);
+	connect(ui.buttonSettings, &QPushButton::clicked, this, &qtclicker::clickedSettings);
 	connect(ui.buttonExit, &QPushButton::clicked, this, &qtclicker::clickedExit);
-	connect(ui.buttonGo1, &QPushButton::clicked, this, &qtclicker::clickedGo1);
 	connect(ui.buttonReturn, &QPushButton::clicked, this, &qtclicker::clickedReturn);
+	connect(&timerClicker, &QTimer::timeout, this, &qtclicker::timerTimeout);
+
+	set = new settings(this);
 }
 
-qtclicker::~qtclicker() = default;
+qtclicker::~qtclicker()
+{
+	delete set;
+}
 
 void qtclicker::clickedExit()
 {
-	exit(0);
+	QApplication::quit();
 }
 
-void qtclicker::clickedGo1()
+void qtclicker::clickedPlay()
 {
 	ui.frameButtons->setVisible(false);
 	ui.frameScore->setVisible(true);
@@ -29,11 +36,17 @@ void qtclicker::clickedGo1()
 	ui.labelScore->setText("0");
 	ui.frameDots->setVisible(true);
 
+	maxTick = time * 1000 / tickInterval;
 	tickCounter = 0;
 	score = 0;
 	timerClicker.setInterval(tickInterval);
-	connect(&timerClicker, &QTimer::timeout, this, &qtclicker::timerTimeout);
 	timerClicker.start();
+}
+
+void qtclicker::clickedSettings()
+{
+	set->show();
+	this->hide();
 }
 
 void qtclicker::clickedReturn()

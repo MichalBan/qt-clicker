@@ -20,6 +20,9 @@ set(PROJECT_SOURCES
     qtclicker.ui
     qtclicker.h
     qtclicker.cpp
+    settings.ui
+    settings.h
+    settings.cpp
 )
 
 qt_add_executable(${PROJECT_NAME} ${PROJECT_SOURCES})

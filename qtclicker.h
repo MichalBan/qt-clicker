@@ -2,6 +2,7 @@
 
 #include <QtWidgets/QMainWindow>
 #include "ui_qtclicker.h"
+#include "settings.h"
 
 class qtclicker : public QMainWindow
 {
@@ -13,8 +14,9 @@ public:
 
 private:
 	// button events
+    void clickedPlay();
+    void clickedSettings();
     void clickedExit();
-    void clickedGo1();
     void clickedReturn();
     void clickedDot();
     // timer events
@@ -23,13 +25,17 @@ private:
     void endClicker();
     void spawnDot();
 
+	// variables
     int tickCounter;
+    int maxTick;
     int score;
     QTimer timerClicker;
-    Ui::qtclickerClass ui;
-
+    //options
     int dotSize = 20;
     int tickInterval = 500;
-    static constexpr int maxTick = 10;
+    int time = 10;
+    // UI
+    settings* set;
+    Ui::qtclickerClass ui;
 };
 
