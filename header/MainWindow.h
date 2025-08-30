@@ -1,16 +1,15 @@
 #pragma once
 
-#include <QtWidgets/QMainWindow>
-#include "ui_qtclicker.h"
-#include "settings.h"
+#include "ui_MainWindow.h"
+#include "SettingsWindow.h"
 
-class qtclicker : public QMainWindow
+class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    qtclicker(QWidget *parent = nullptr);
-    ~qtclicker();
+    MainWindow(QWidget *parent = nullptr);
+    ~MainWindow();
 
 private:
 	// button events
@@ -35,7 +34,7 @@ private:
     int tickInterval = 500;
     int time = 10;
     // UI
-    settings* set;
+    SettingsWindow* set;
     Ui::qtclickerClass ui;
 };
 

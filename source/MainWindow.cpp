@@ -1,6 +1,6 @@
-#include "qtclicker.h"
+#include "MainWindow.h"
 
-qtclicker::qtclicker(QWidget* parent)
+MainWindow::MainWindow(QWidget* parent)
 	: QMainWindow(parent)
 {
 	ui.setupUi(this);
@@ -8,26 +8,26 @@ qtclicker::qtclicker(QWidget* parent)
 	ui.frameScore->setVisible(false);
 	ui.frameReturn->setVisible(false);
 	ui.frameDots->setVisible(false);
-	connect(ui.buttonPlay, &QPushButton::clicked, this, &qtclicker::clickedPlay);
-	connect(ui.buttonSettings, &QPushButton::clicked, this, &qtclicker::clickedSettings);
-	connect(ui.buttonExit, &QPushButton::clicked, this, &qtclicker::clickedExit);
-	connect(ui.buttonReturn, &QPushButton::clicked, this, &qtclicker::clickedReturn);
-	connect(&timerClicker, &QTimer::timeout, this, &qtclicker::timerTimeout);
+	connect(ui.buttonPlay, &QPushButton::clicked, this, &MainWindow::clickedPlay);
+	connect(ui.buttonSettings, &QPushButton::clicked, this, &MainWindow::clickedSettings);
+	connect(ui.buttonExit, &QPushButton::clicked, this, &MainWindow::clickedExit);
+	connect(ui.buttonReturn, &QPushButton::clicked, this, &MainWindow::clickedReturn);
+	connect(&timerClicker, &QTimer::timeout, this, &MainWindow::timerTimeout);
 
-	set = new settings(this);
+	set = new SettingsWindow(this);
 }
 
-qtclicker::~qtclicker()
+MainWindow::~MainWindow()
 {
 	delete set;
 }
 
-void qtclicker::clickedExit()
+void MainWindow::clickedExit()
 {
 	QApplication::quit();
 }
 
-void qtclicker::clickedPlay()
+void MainWindow::clickedPlay()
 {
 	ui.frameButtons->setVisible(false);
 	ui.frameScore->setVisible(true);
@@ -42,26 +42,26 @@ void qtclicker::clickedPlay()
 	timerClicker.start();
 }
 
-void qtclicker::clickedSettings()
+void MainWindow::clickedSettings()
 {
 	set->show();
 	this->hide();
 }
 
-void qtclicker::clickedReturn()
+void MainWindow::clickedReturn()
 {
 	ui.frameReturn->setVisible(false);
 	ui.frameButtons->setVisible(true);
 }
 
-void qtclicker::clickedDot()
+void MainWindow::clickedDot()
 {
 	++score;
 	ui.labelScore->setText(QString::number(score));
 	delete sender();
 }
 
-void qtclicker::timerTimeout()
+void MainWindow::timerTimeout()
 {
 	++tickCounter;
 	if (tickCounter > maxTick)
@@ -74,7 +74,7 @@ void qtclicker::timerTimeout()
 	ui.progressBarTime->setValue(tickCounter * 100 / maxTick);
 }
 
-void qtclicker::endClicker()
+void MainWindow::endClicker()
 {
 	ui.frameScore->setVisible(false);
 	ui.frameReturn->setVisible(true);
@@ -88,13 +88,13 @@ void qtclicker::endClicker()
 	   setText(QString("Your Score: %1 / %2").arg(QString::number(score), QString::number(maxTick)));
 }
 
-void qtclicker::spawnDot()
+void MainWindow::spawnDot()
 {
 	auto dot = new QPushButton(ui.frameDots);
 	int X = QRandomGenerator::global()->bounded(dotSize, ui.frameDots->width() - dotSize);
 	int Y = QRandomGenerator::global()->bounded(dotSize, ui.frameDots->height() - dotSize);
 	dot->setGeometry(X, Y, dotSize, dotSize);
 	dot->setStyleSheet(QString("border-radius: %1px; background-color: rgb(217, 2, 255)").arg(dotSize / 2));
-	connect(dot, &QPushButton::clicked, this, &qtclicker::clickedDot);
+	connect(dot, &QPushButton::clicked, this, &MainWindow::clickedDot);
 	dot->show();
 }
