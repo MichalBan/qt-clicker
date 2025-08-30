@@ -15,17 +15,12 @@ find_package(Qt${QT_VERSION_MAJOR}
 )
 qt_standard_project_setup()
 
-set(PROJECT_SOURCES
-    main.cpp
-    qtclicker.ui
-    qtclicker.h
-    qtclicker.cpp
-    settings.ui
-    settings.h
-    settings.cpp
-)
+file(GLOB PROJECT_SOURCES "source/*" "header/*" "ui/*")
+set(CMAKE_AUTOUIC_SEARCH_PATHS "ui")
 
 qt_add_executable(${PROJECT_NAME} ${PROJECT_SOURCES})
+
+target_include_directories(${PROJECT_NAME} PRIVATE "header")
 
 set_target_properties(${PROJECT_NAME}
     PROPERTIES
@@ -38,4 +33,4 @@ target_link_libraries(${PROJECT_NAME}
         Qt::Gui
         Qt::Widgets
 )
-target_precompile_headers(${PROJECT_NAME} PUBLIC stdafx.h)
+target_precompile_headers(${PROJECT_NAME} PUBLIC "header/stdafx.h")

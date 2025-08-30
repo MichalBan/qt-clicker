@@ -1,4 +1,3 @@
-#include "stdafx.h"
 #include "qtclicker.h"
 
 qtclicker::qtclicker(QWidget* parent)
