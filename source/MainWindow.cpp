@@ -1,5 +1,7 @@
 #include "MainWindow.h"
 
+#include "SettingsHandler.h"
+
 MainWindow::MainWindow(QWidget* parent)
 	: QMainWindow(parent)
 {
@@ -35,6 +37,9 @@ void MainWindow::clickedPlay()
 	ui.labelScore->setText("0");
 	ui.frameDots->setVisible(true);
 
+	dotSize = SettingsHandler::get().getSetting(SettingTypes::dotSize);
+	tickInterval = SettingsHandler::get().getSetting(SettingTypes::interval);
+	time = SettingsHandler::get().getSetting(SettingTypes::time);
 	maxTick = time * 1000 / tickInterval;
 	tickCounter = 0;
 	score = 0;

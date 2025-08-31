@@ -25,14 +25,13 @@ private:
     void spawnDot();
 
 	// variables
+    int dotSize;
+    int tickInterval;
+    int time;
     int tickCounter;
     int maxTick;
     int score;
     QTimer timerClicker;
-    //options
-    int dotSize = 20;
-    int tickInterval = 500;
-    int time = 10;
     // UI
     SettingsWindow* set;
     Ui::qtclickerClass ui;

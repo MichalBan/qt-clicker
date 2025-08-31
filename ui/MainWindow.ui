@@ -26,6 +26,12 @@
       <height>111</height>
      </rect>
     </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
     <property name="layoutDirection">
      <enum>Qt::LayoutDirection::LeftToRight</enum>
     </property>
@@ -80,6 +86,12 @@ color: rgb(122, 84, 53);</string>
       <height>70</height>
      </rect>
     </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
     <property name="layoutDirection">
      <enum>Qt::LayoutDirection::LeftToRight</enum>
     </property>
@@ -115,6 +127,12 @@ color: rgb(122, 84, 53);</string>
       <height>70</height>
      </rect>
     </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
     <layout class="QVBoxLayout" name="verticalLayout_2">
      <item>
       <widget class="QLabel" name="labelLastScore">
@@ -128,6 +146,10 @@ color: rgb(122, 84, 53);</string>
      </item>
      <item>
       <widget class="QPushButton" name="buttonReturn">
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(60, 182, 4);
+color: rgb(122, 84, 53);</string>
+       </property>
        <property name="text">
         <string>Return</string>
        </property>
@@ -143,6 +165,12 @@ color: rgb(122, 84, 53);</string>
       <width>550</width>
       <height>450</height>
      </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
     </property>
     <property name="styleSheet">
      <string notr="true">border-color: rgb(170, 85, 0);
